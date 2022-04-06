@@ -25,6 +25,7 @@ export const FONTS = {
   h4: { fontFamily: "HeeboBold", fontSize: SIZES.h3, lineHeight: 22 },
   h5: { fontFamily: "Courgette", fontSize: SIZES.h4, lineHeight: 22 },
   body: {fontFamily: "Heebo", fontSize: SIZES.body, lineHeight: 22},
+  bodyBold: {fontFamily: "HeeboBold", fontSize: SIZES.body, lineHeight: 22},
 }
 
 const appTheme = { COLORS, SIZES, FONTS }

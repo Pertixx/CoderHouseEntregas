@@ -24,13 +24,13 @@ const IngredientCard = ({ingredient}) => {
           paddingHorizontal: 20,
           justifyContent: 'center'
         }}>
-          <Text style={{...FONTS.body, fontWeight: 'bold'}}>{ingredient.description}</Text>
+          <Text style={{...FONTS.bodyBold}}>{ingredient.description}</Text>
         </View>
         <View style={{
           justifyContent: 'center',
           alignItems: 'flex-end'
         }}>
-          <Text style={{...FONTS.body, fontWeight: 'bold', color: 'gray'}}>{ingredient.quantity}</Text>
+          <Text style={{...FONTS.bodyBold,color: 'gray'}}>{ingredient.quantity}</Text>
         </View>
       </View>
   )
