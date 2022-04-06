@@ -1,3 +1,6 @@
+import icons from "./icons"
+import images from "./images"
+
 const trendingRecipes = [
   {
       id: 1,

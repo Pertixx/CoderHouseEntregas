@@ -9,6 +9,7 @@ const pasta = require('../assets/icons/pasta.png')
 const salt = require('../assets/icons/salt.png')
 const shrimp = require('../assets/icons/shrimp.png')
 const tomato = require('../assets/icons/tomato.png')
+const bookmark = require('../assets/icons/bookmark.png')
 
 export default {
   pepper,
@@ -22,4 +23,5 @@ export default {
   salt,
   shrimp,
   tomato,
+  bookmark,
 }

@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import React from 'react'
 
-const Recipe = () => {
+const Recipe = ({onPress}) => {
   return (
     <View>
-      <Text>Recipe</Text>
+      <TouchableOpacity
+        onPress={() => onPress(null)}
+      >
+        <Text>Recipe</Text>
+      </TouchableOpacity>
     </View>
   )
 }
