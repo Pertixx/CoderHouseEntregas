@@ -7,7 +7,7 @@ import Recipe from '../screens/Recipe'
 const CategoryCard = ({categoryItem, onPress}) => {
   return (
     <TouchableOpacity
-      onPress={() => onPress(<Recipe onPress={onPress}/>)}
+      onPress={() => onPress(<Recipe onPress={onPress} recipeItem={categoryItem}/>)}
       style={styles.card}
     >
       <Image
