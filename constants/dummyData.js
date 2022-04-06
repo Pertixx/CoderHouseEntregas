@@ -23,7 +23,7 @@ const trendingRecipes = [
               id: 2,
               icon: icons.oil,
               description: "Aceite de Oliva",
-              quantity: "2 tbsp"
+              quantity: "2 cda"
           },
           {
               id: 3,
@@ -53,7 +53,7 @@ const trendingRecipes = [
             id: 7,
             icon: icons.oil,
             description: "Aceite de Oliva",
-            quantity: "2 tbsp"
+            quantity: "2 cda"
         },
         {
             id: 8,
@@ -140,7 +140,7 @@ const trendingRecipes = [
             id: 2,
             icon: icons.oil,
             description: "Aceite de Oliva",
-            quantity: "2 tbsp"
+            quantity: "2 cda"
         },
         {
             id: 3,
@@ -170,7 +170,7 @@ const trendingRecipes = [
           id: 7,
           icon: icons.oil,
           description: "Aceite de Oliva",
-          quantity: "2 tbsp"
+          quantity: "2 cda"
       },
       {
           id: 8,
