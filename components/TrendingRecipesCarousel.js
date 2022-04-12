@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import TrendingRecipeCard from './TrendingRecipeCard'
 
-const TrendingRecipesCarousel = ({onPress}) => {
+const TrendingRecipesCarousel = ({navigation}) => {
   return (
     <View style={styles.trendingContainer}>
         <Text style={{...FONTS.h2}}>Recetas Mas Populares</Text>
@@ -16,7 +16,7 @@ const TrendingRecipesCarousel = ({onPress}) => {
           renderItem={({item}) => {
             return (
               <View>
-                <TrendingRecipeCard recipeItem={item} onPress={onPress}/>
+                <TrendingRecipeCard recipeItem={item} navigation={navigation}/>
               </View>
             )
           }}

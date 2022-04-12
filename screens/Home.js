@@ -7,14 +7,13 @@ import React from 'react'
 import TrendingRecipesCarousel from '../components/TrendingRecipesCarousel'
 import { useState } from 'react'
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
-  const [content, setContent] = useState(null)
 
   const renderItem = (item) => {
     return (
       <View style={{paddingHorizontal: SIZES.padding}}>
-        <CategoryCard categoryItem={item} onPress={setContent}/>
+        <CategoryCard categoryItem={item} navigation={navigation}/>
       </View>
     )
   }
@@ -30,10 +29,6 @@ const Home = () => {
     )
   }
 
-  if (content != null) {
-    return content
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -44,7 +39,7 @@ const Home = () => {
         ListHeaderComponent={
           <View style={{paddingHorizontal: SIZES.padding}}>
             <Header />
-            <TrendingRecipesCarousel onPress={setContent}/>
+            <TrendingRecipesCarousel navigation={navigation}/>
             {renderCategoryHeader()}
           </View>
         }

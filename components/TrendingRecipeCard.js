@@ -2,14 +2,13 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { FONTS } from '../constants'
 import React from 'react'
-import Recipe from '../screens/Recipe'
 import RecipeCardInfo from './RecipeCardInfo'
 
-const TrendingRecipeCard = ({onPress, recipeItem}) => {
+const TrendingRecipeCard = ({recipeItem, navigation}) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => onPress(<Recipe onPress={onPress} recipeItem={recipeItem}/>)}
+      onPress={() => navigation.navigate('Recipe', {recipeItem: recipeItem})}
     >
       <Image
         source={recipeItem.image}

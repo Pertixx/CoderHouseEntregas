@@ -2,12 +2,11 @@ import { COLORS, FONTS, SIZES } from '../constants'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import React from 'react'
-import Recipe from '../screens/Recipe'
 
-const CategoryCard = ({categoryItem, onPress}) => {
+const CategoryCard = ({categoryItem, navigation}) => {
   return (
     <TouchableOpacity
-      onPress={() => onPress(<Recipe onPress={onPress} recipeItem={categoryItem}/>)}
+      onPress={() => navigation.navigate('Recipe', { recipeItem: categoryItem })}
       style={styles.card}
     >
       <Image

@@ -6,7 +6,9 @@ import React from 'react'
 
 const HEADER_HEIGHT = 350
 
-const Recipe = ({onPress, recipeItem}) => {
+const Recipe = ({navigation, route}) => {
+
+  const { recipeItem } = route.params
 
   const renderRecipeHeader = () => {
     return (
@@ -43,7 +45,7 @@ const Recipe = ({onPress, recipeItem}) => {
       />
       <View style={styles.backButtonContainer}>
         <TouchableOpacity
-          onPress={() => onPress(null)}
+          onPress={() => navigation.goBack()}
           style={styles.backButton}
         >
           <Ionicons name="chevron-back" size={30} color="black" />
