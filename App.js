@@ -10,6 +10,8 @@ export default function App() {
     Heebo: require('./assets/fonts/Heebo-Regular.ttf'),
     HeeboBold: require('./assets/fonts/Heebo-Bold.ttf'),
     Courgette: require('./assets/fonts/Courgette-Regular.ttf'),
+    Roboto: require('./assets/fonts/Roboto-Regular.ttf'),
+    RobotoBold: require('./assets/fonts/Roboto-Bold.ttf'),
   })
 
   if (!loaded) {
@@ -26,6 +28,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 40,
   },
 });
