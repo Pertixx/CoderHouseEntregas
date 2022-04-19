@@ -15,6 +15,9 @@ export const COLORS = {
   lightGray: "#F5F6FB",
   lightGray2: '#757575',
 
+  darkOrange: '#E65100',
+  orange: '#FF8C32',
+
   transparentBlack1: 'rgba(2, 2, 2, 0.1)',
   transparentBlack3: 'rgba(2, 2, 2, 0.3)',
   transparentBlack5: 'rgba(2, 2, 2, 0.5)',
@@ -38,6 +41,8 @@ export const SIZES = {
   body: 14,
 
   padding: 15,
+
+  icon: 24,
 }
 
 export const FONTS = {

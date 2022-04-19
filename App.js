@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
 import Navigator from './navigation/Navigator';

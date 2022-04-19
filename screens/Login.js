@@ -11,7 +11,7 @@ const Login = ({ navigation }) => {
     return (
       <View style={styles.backgroundImageContainer}>
         <ImageBackground
-        source={images.backgroundLogin}
+        source={images.backgroundLogin2}
         style={styles.image}
         resizeMode='cover'
       >
@@ -39,12 +39,12 @@ const Login = ({ navigation }) => {
         </Text>
         <View style={styles.buttonsContainer}>
           <CustomButton
-            onPress={() => navigation.navigate('Home')}
-            text='Login' colors={[COLORS.darkGreen, COLORS.lime]}
+            onPress={() => navigation.navigate('HomeStack')}
+            text='Login' colors={[COLORS.darkOrange, COLORS.orange]}
             buttonStyle={styles.loginButton}
           />
           <CustomButton
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('HomeStack')}
             text='Signup'
             buttonStyle={styles.signupButton}
           />

@@ -1,5 +1,5 @@
 import { FONTS, SIZES, dummyData } from '../constants/'
-import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import CategoryCard from '../components/CategoryCard'
 import Header from '../components/Header'
@@ -31,6 +31,7 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="default"/>
       <FlatList
         data={dummyData}
         showsVerticalScrollIndicator={false}
