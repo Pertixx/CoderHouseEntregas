@@ -1,8 +1,7 @@
-//import * as Animatable from 'react-native-animatable';
-
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import { COLORS, SIZES } from '../constants';
 import React, { useEffect, useRef } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { Feather } from '@expo/vector-icons'
 
@@ -10,13 +9,24 @@ const TabButton = (props) => {
 
   const { item, onPress, accessibilityState } = props
   const focused = accessibilityState.selected
-  const viewRef = useRef(null)
+  const animation = useSharedValue({width: 0, height: 0})
+
+  const animationStyle = useAnimatedStyle(() => {
+    return {
+      width: withTiming(animation.value.width, {
+        duration: 500
+      }),
+      height: withTiming(animation.value.height, {
+        duration: 400
+      }),
+    }
+  })
 
   useEffect(() => {
     if (focused) {
-      //viewRef.current.animate({ 0: { scale: 0 }, 1: { scale: 1 } })
+      animation.value = {width: SIZES.padding + 20, height: SIZES.padding + 20}
     } else {
-      //viewRef.current.animate({ 0: { scale: 1, }, 1: { scale: 0, } })
+      animation.value = {width: 0, height: 0}
     }
   }, [focused])
 
@@ -25,13 +35,12 @@ const TabButton = (props) => {
     onPress={onPress}
     style={[styles.container, Platform.OS === 'ios' ? {top:15} : null]}
     >
-      <Feather name={item.iconName} size={SIZES.icon} color={focused ? COLORS.black : COLORS.gray} />
       <View>
-        <View
-          //ref={viewRef}
-          style={[StyleSheet.absoluteFillObject, styles.emergingView]}
-        >
-          
+        <Animated.View
+          style={[animationStyle, styles.emergingView]}
+        />
+        <View style={{alignItems: 'center'}}>
+          <Feather name={item.iconName} size={SIZES.icon} color={focused ? COLORS.white : COLORS.gray} />
         </View>
       </View>
     </TouchableOpacity>
@@ -48,6 +57,9 @@ const styles = StyleSheet.create({
   },
   emergingView: {
     backgroundColor: COLORS.black,
-    borderRadius: SIZES.padding,
+    borderRadius: SIZES.padding - 5,
+    position: 'absolute',
+    alignSelf: 'center',
+    bottom: -5
   },
 })
