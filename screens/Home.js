@@ -44,6 +44,16 @@ const Home = ({ navigation }) => {
     }
   }
 
+  const renderEmptyListMessage = () => {
+    if (data.length === 0) {
+      return (
+        <View style={{alignItems: 'center', marginTop: SIZES.padding}}>
+          <Text style={{...FONTS.h3, color: COLORS.gray}}>No hay recetas con la categoria seleccionada</Text>
+        </View>
+      )
+    }
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="default"/>
@@ -60,7 +70,10 @@ const Home = ({ navigation }) => {
           </View>
         }
         ListFooterComponent={
-          <View style={{marginBottom: SIZES.bottomTabHeight * 2}}/>
+          <View>
+            {renderEmptyListMessage()}
+            <View style={{marginBottom: SIZES.bottomTabHeight * 2}}/>
+          </View>
         }
       />
     </SafeAreaView>
