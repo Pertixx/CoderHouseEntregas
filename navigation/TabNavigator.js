@@ -54,7 +54,7 @@ export default TabNavigator
 const styles = StyleSheet.create({
   tab: {
     position: 'absolute',
-    height: 60,
+    height: SIZES.bottomTabHeight,
     left: SIZES.padding,
     right: SIZES.padding,
     borderRadius: SIZES.padding,

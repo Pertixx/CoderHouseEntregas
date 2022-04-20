@@ -1,3 +1,6 @@
+import { Dimensions } from "react-native"
+const { width, height } = Dimensions.get("window")
+
 export const COLORS = {
   darkGreen: "#229879",
   darkLime: "#1A8871",
@@ -9,9 +12,11 @@ export const COLORS = {
   white: "#fff",
   white2: '#F9F9F9',
   black: "#020202",
+  black2: '#06113C',
   blue: "#4096FE",
   gray: "#777777",
   gray2: '#F8F8F8',
+  gray3: '#DDDDDD',
   lightGray: "#F5F6FB",
   lightGray2: '#757575',
 
@@ -39,10 +44,12 @@ export const SIZES = {
   largeTitle: 40,
 
   body: 14,
-
   padding: 15,
-
   icon: 24,
+  bottomTabHeight: 60,
+
+  width,
+  height,
 }
 
 export const FONTS = {
@@ -50,8 +57,8 @@ export const FONTS = {
   h1: { fontFamily: "Roboto", fontSize: SIZES.h1, lineHeight: 36 },
   h2: { fontFamily: "RobotoBold", fontSize: SIZES.h2, lineHeight: 30 },
   h3: { fontFamily: "RobotoBold", fontSize: SIZES.h3, lineHeight: 22 },
-  h4: { fontFamily: "RobotoBold", fontSize: SIZES.h3, lineHeight: 22 },
-  h5: { fontFamily: "Courgette", fontSize: SIZES.h4, lineHeight: 22 },
+  h4: { fontFamily: "RobotoBold", fontSize: SIZES.h4, lineHeight: 22 },
+  h5: { fontFamily: "Roboto", fontSize: SIZES.h4, lineHeight: 22 },
   body: {fontFamily: "Roboto", fontSize: SIZES.body, lineHeight: 22},
   bodyBold: {fontFamily: "RobotoBold", fontSize: SIZES.body, lineHeight: 22},
 }

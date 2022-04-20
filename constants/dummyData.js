@@ -7,6 +7,7 @@ const trendingRecipes = [
       name: "Spaghetti Con Camarones",
       image: images.spagetti,
       duration: "30 mins",
+      views: 41,
       category: "Pasta",
       author: {
           profilePic: images.UserProfile5,
@@ -80,6 +81,7 @@ const trendingRecipes = [
       name: "Pollo de Malasia",
       image: images.satay,
       duration: "50 mins",
+      views: 16,
       category: "Carne",
       author: {
           profilePic: images.UserProfile8,
@@ -124,6 +126,7 @@ const trendingRecipes = [
     name: "Spaghetti Con Camarones",
     image: images.spagetti,
     duration: "30 mins",
+    views: 2,
     category: "Pasta",
     author: {
         profilePic: images.UserProfile5,
@@ -195,4 +198,26 @@ const trendingRecipes = [
 
 ]
 
-export default trendingRecipes
+const categories = [
+  {
+    id: 1,
+    name: 'Desayuno',
+  },
+  {
+    id: 2,
+    name: 'Almuerzo',
+  },
+  {
+    id: 3,
+    name: 'Merienda',
+  },
+  {
+    id: 4,
+    name: 'Cena',
+  },
+]
+
+export default {
+  trendingRecipes,
+  categories,
+}

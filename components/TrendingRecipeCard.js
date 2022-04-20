@@ -1,10 +1,12 @@
+import { COLORS, FONTS, SIZES } from '../constants'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 
-import { FONTS } from '../constants'
-import React from 'react'
+import BookmarkButton from './BookmarkButton'
 import RecipeCardInfo from './RecipeCardInfo'
 
 const TrendingRecipeCard = ({recipeItem, navigation}) => {
+
   return (
     <TouchableOpacity
       style={styles.container}
@@ -15,8 +17,13 @@ const TrendingRecipeCard = ({recipeItem, navigation}) => {
         resizeMode="cover"
         style={styles.image}
       />
-      <View style={styles.category}>
-        <Text style={{color: '#fff', ...FONTS.h4}}>{recipeItem.category}</Text>
+      <View style={styles.headerContainer}>
+        <View style={styles.category}>
+          <Text style={{color: '#fff', ...FONTS.h4}}>{recipeItem.category}</Text>
+        </View>
+        <BookmarkButton
+          onPress={() => console.log('Bookmark')}
+        />
       </View>
       <RecipeCardInfo recipeItem={recipeItem} />
     </TouchableOpacity>
@@ -27,24 +34,34 @@ export default TrendingRecipeCard
 
 const styles = StyleSheet.create({
   container: {
-    height: 350,
-    width: 250,
+    height: SIZES.height / 1.8,
+    width: SIZES.width / 1.3,
     marginTop: 10,
     marginRight: 20,
-    borderRadius: 10,
+    borderRadius: 15,
   },
   image: {
-    width: 250,
-    height: 350,
-    borderRadius: 10,
+    width: SIZES.width / 1.3,
+    height: SIZES.height / 1.8,
+    borderRadius: 15,
   },
   category: {
-    position: "absolute",
-    top: 15,
-    left: 15,
-    backgroundColor: 'gray',
+    backgroundColor: COLORS.black,
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 15,
     paddingVertical: 1,
-    borderRadius: 15,
+    borderRadius: 8,
+    width: '50%',
+    height: '100%'
+  },
+  headerContainer: {
+    position: "absolute",
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    justifyContent: 'space-between',
+    paddingTop: SIZES.padding,
+    paddingHorizontal: SIZES.padding,
   },
 })
