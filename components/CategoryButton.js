@@ -9,7 +9,7 @@ const CategoryButton = ({ onPress, item }) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        onPress()
+        onPress(item.name)
         setSelected(!selected)
       }}
       style={[

@@ -11,6 +11,7 @@ import { useState } from 'react'
 const Home = ({ navigation }) => {
 
   const [ data, setData ] = useState(dummyData.trendingRecipes)
+  const [ selectedCategories, setSelectedCategories ] = useState([])
 
   const renderItem = (item) => {
     return (
@@ -18,6 +19,29 @@ const Home = ({ navigation }) => {
         <CategoryCard categoryItem={item} navigation={navigation}/>
       </View>
     )
+  }
+
+  const filterFlatListContent = (category) => {
+    if (selectedCategories.includes(category)) {
+      let index = selectedCategories.indexOf(category)
+      selectedCategories.splice(index, 1)
+    } else {
+      selectedCategories.push(category)
+    }
+
+    if (selectedCategories.length > 0) {
+      let new_data = []
+      selectedCategories.forEach(category => {
+        dummyData.trendingRecipes.map((item) => {
+          if (item.category === category) {
+            new_data.push(item)
+          }
+        })
+      })
+      setData(new_data)
+    } else {
+      setData(dummyData.trendingRecipes)
+    }
   }
 
   return (
@@ -32,7 +56,7 @@ const Home = ({ navigation }) => {
           <View style={{paddingHorizontal: SIZES.padding}}>
             <Header />
             <TrendingRecipesCarousel navigation={navigation} />
-            <CategoriesCarousel data={dummyData.categories} onPress={() => console.log('Change flatlist content')} />
+            <CategoriesCarousel data={dummyData.categories} onPress={filterFlatListContent} />
           </View>
         }
         ListFooterComponent={
@@ -48,6 +72,6 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.white2,
   },
 })

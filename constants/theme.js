@@ -35,6 +35,19 @@ export const COLORS = {
   transparent: 'transparent',
 }
 
+export const SHADOW = {
+  shadow1: {
+    shadowColor: "#000",
+    shadowOffset: {
+	    width: 0,
+	    height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  }
+}
+
 export const SIZES = {
   h1: 30,
   h2: 22,
@@ -63,6 +76,6 @@ export const FONTS = {
   bodyBold: {fontFamily: "RobotoBold", fontSize: SIZES.body, lineHeight: 22},
 }
 
-const appTheme = { COLORS, SIZES, FONTS }
+const appTheme = { COLORS, SIZES, FONTS, SHADOW }
 
 export default appTheme
