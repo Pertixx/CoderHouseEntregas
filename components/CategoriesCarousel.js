@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import React, { useState } from 'react'
 
 import CategoryButton from './CategoryButton'
-import SeeAllButton from '../components/SeeAllButton'
+import SeeAllButton from './SeeAllButton'
 
 const CategoriesCarousel = ({ data, onPress }) => {
 

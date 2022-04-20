@@ -2,9 +2,9 @@ import { COLORS, FONTS, SIZES, dummyData } from '../constants/'
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import CategoriesCarousel from '../components/CategoriesCarousel'
-import CategoryCard from '../components/CategoryCard'
 import Header from '../components/Header'
 import React from 'react'
+import RecipeCard from '../components/RecipeCard'
 import TrendingRecipesCarousel from '../components/TrendingRecipesCarousel'
 import { useState } from 'react'
 
@@ -16,7 +16,7 @@ const Home = ({ navigation }) => {
   const renderItem = (item) => {
     return (
       <View style={{paddingHorizontal: SIZES.padding}}>
-        <CategoryCard categoryItem={item} navigation={navigation}/>
+        <RecipeCard categoryItem={item} navigation={navigation}/>
       </View>
     )
   }

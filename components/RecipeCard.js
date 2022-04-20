@@ -4,7 +4,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import React from 'react'
 
-const CategoryCard = ({categoryItem, navigation}) => {
+const RecipeCard = ({categoryItem, navigation}) => {
   return (
     <View style={styles.card}>
       <Image
@@ -18,7 +18,6 @@ const CategoryCard = ({categoryItem, navigation}) => {
           <Image
             source={categoryItem.author.profilePic}
             style={styles.profilePic}
-            resizeMode='contain'
           />
           <Text style={styles.itemInfo}>{categoryItem.author.name}</Text>
         </View>
@@ -27,13 +26,13 @@ const CategoryCard = ({categoryItem, navigation}) => {
         onPress={() => navigation.navigate('Recipe', { recipeItem: categoryItem })}
         style={styles.button}
       >
-        <Feather name="arrow-right" size={24} color={COLORS.white} />
+        <Feather name="arrow-right" size={SIZES.icon} color={COLORS.white} />
       </TouchableOpacity>
     </View>
   )
 }
 
-export default CategoryCard
+export default RecipeCard
 
 const styles = StyleSheet.create({
   card: {
@@ -48,11 +47,11 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    borderRadius: 15
+    borderRadius: 15,
   },
   details: {
     width: "65%",
-    paddingHorizontal: 20,
+    paddingHorizontal: SIZES.padding + 5,
   },
   itemName: {
     flex: 1,
@@ -66,12 +65,12 @@ const styles = StyleSheet.create({
     width: '50%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
   },
   profilePic: {
     width: 28,
     height: 28,
     borderRadius: 14,
+    marginRight: SIZES.padding - 8,
   },
   button: {
     position: 'absolute',

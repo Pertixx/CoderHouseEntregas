@@ -195,6 +195,302 @@ const trendingRecipes = [
       },
     ],
 },
+{
+  id: 4,
+  name: "Spaghetti Con Camarones",
+  image: images.spagetti,
+  duration: "30 mins",
+  views: 2,
+  category: "Almuerzo",
+  author: {
+      profilePic: images.UserProfile5,
+      name: "Sol",
+  },
+  ingredients: [
+      {
+          id: 1,
+          icon: icons.pasta,
+          description: "Spaghetti pasta",
+          quantity: "100g"
+      },
+      {
+          id: 2,
+          icon: icons.oil,
+          description: "Aceite de Oliva",
+          quantity: "2 cda"
+      },
+      {
+          id: 3,
+          icon: icons.shrimp,
+          description: "Camaron Fresco",
+          quantity: "100g"
+      },
+      {
+          id: 4,
+          icon: icons.tomato,
+          description: "Tomates",
+          quantity: "100g"
+      },
+      {
+          id: 5,
+          icon: icons.salt,
+          description: "Sal",
+          quantity: "¾ cda"
+      },
+      {
+          id: 6,
+          icon: icons.pepper,
+          description: "Pimienta Negra",
+          quantity: "¼ cda"
+      },
+      {
+        id: 7,
+        icon: icons.oil,
+        description: "Aceite de Oliva",
+        quantity: "2 cda"
+    },
+    {
+        id: 8,
+        icon: icons.shrimp,
+        description: "Camaron Fresco",
+        quantity: "100g"
+    },
+    {
+        id: 9,
+        icon: icons.tomato,
+        description: "Tomates",
+        quantity: "100g"
+    },
+    {
+        id: 10,
+        icon: icons.salt,
+        description: "Sal",
+        quantity: "¾ cda"
+    },
+  ],
+},
+{
+  id: 5,
+  name: "Spaghetti Con Camarones",
+  image: images.spagetti,
+  duration: "30 mins",
+  views: 2,
+  category: "Almuerzo",
+  author: {
+      profilePic: images.UserProfile5,
+      name: "Sol",
+  },
+  ingredients: [
+      {
+          id: 1,
+          icon: icons.pasta,
+          description: "Spaghetti pasta",
+          quantity: "100g"
+      },
+      {
+          id: 2,
+          icon: icons.oil,
+          description: "Aceite de Oliva",
+          quantity: "2 cda"
+      },
+      {
+          id: 3,
+          icon: icons.shrimp,
+          description: "Camaron Fresco",
+          quantity: "100g"
+      },
+      {
+          id: 4,
+          icon: icons.tomato,
+          description: "Tomates",
+          quantity: "100g"
+      },
+      {
+          id: 5,
+          icon: icons.salt,
+          description: "Sal",
+          quantity: "¾ cda"
+      },
+      {
+          id: 6,
+          icon: icons.pepper,
+          description: "Pimienta Negra",
+          quantity: "¼ cda"
+      },
+      {
+        id: 7,
+        icon: icons.oil,
+        description: "Aceite de Oliva",
+        quantity: "2 cda"
+    },
+    {
+        id: 8,
+        icon: icons.shrimp,
+        description: "Camaron Fresco",
+        quantity: "100g"
+    },
+    {
+        id: 9,
+        icon: icons.tomato,
+        description: "Tomates",
+        quantity: "100g"
+    },
+    {
+        id: 10,
+        icon: icons.salt,
+        description: "Sal",
+        quantity: "¾ cda"
+    },
+  ],
+},
+{
+  id: 6,
+  name: "Spaghetti Con Camarones",
+  image: images.spagetti,
+  duration: "30 mins",
+  views: 2,
+  category: "Almuerzo",
+  author: {
+      profilePic: images.UserProfile5,
+      name: "Sol",
+  },
+  ingredients: [
+      {
+          id: 1,
+          icon: icons.pasta,
+          description: "Spaghetti pasta",
+          quantity: "100g"
+      },
+      {
+          id: 2,
+          icon: icons.oil,
+          description: "Aceite de Oliva",
+          quantity: "2 cda"
+      },
+      {
+          id: 3,
+          icon: icons.shrimp,
+          description: "Camaron Fresco",
+          quantity: "100g"
+      },
+      {
+          id: 4,
+          icon: icons.tomato,
+          description: "Tomates",
+          quantity: "100g"
+      },
+      {
+          id: 5,
+          icon: icons.salt,
+          description: "Sal",
+          quantity: "¾ cda"
+      },
+      {
+          id: 6,
+          icon: icons.pepper,
+          description: "Pimienta Negra",
+          quantity: "¼ cda"
+      },
+      {
+        id: 7,
+        icon: icons.oil,
+        description: "Aceite de Oliva",
+        quantity: "2 cda"
+    },
+    {
+        id: 8,
+        icon: icons.shrimp,
+        description: "Camaron Fresco",
+        quantity: "100g"
+    },
+    {
+        id: 9,
+        icon: icons.tomato,
+        description: "Tomates",
+        quantity: "100g"
+    },
+    {
+        id: 10,
+        icon: icons.salt,
+        description: "Sal",
+        quantity: "¾ cda"
+    },
+  ],
+},
+{
+  id: 7,
+  name: "Spaghetti Con Camarones",
+  image: images.spagetti,
+  duration: "30 mins",
+  views: 2,
+  category: "Almuerzo",
+  author: {
+      profilePic: images.UserProfile5,
+      name: "Sol",
+  },
+  ingredients: [
+      {
+          id: 1,
+          icon: icons.pasta,
+          description: "Spaghetti pasta",
+          quantity: "100g"
+      },
+      {
+          id: 2,
+          icon: icons.oil,
+          description: "Aceite de Oliva",
+          quantity: "2 cda"
+      },
+      {
+          id: 3,
+          icon: icons.shrimp,
+          description: "Camaron Fresco",
+          quantity: "100g"
+      },
+      {
+          id: 4,
+          icon: icons.tomato,
+          description: "Tomates",
+          quantity: "100g"
+      },
+      {
+          id: 5,
+          icon: icons.salt,
+          description: "Sal",
+          quantity: "¾ cda"
+      },
+      {
+          id: 6,
+          icon: icons.pepper,
+          description: "Pimienta Negra",
+          quantity: "¼ cda"
+      },
+      {
+        id: 7,
+        icon: icons.oil,
+        description: "Aceite de Oliva",
+        quantity: "2 cda"
+    },
+    {
+        id: 8,
+        icon: icons.shrimp,
+        description: "Camaron Fresco",
+        quantity: "100g"
+    },
+    {
+        id: 9,
+        icon: icons.tomato,
+        description: "Tomates",
+        quantity: "100g"
+    },
+    {
+        id: 10,
+        icon: icons.salt,
+        description: "Sal",
+        quantity: "¾ cda"
+    },
+  ],
+},
 
 ]
 
@@ -217,7 +513,18 @@ const categories = [
   },
 ]
 
+const user = {
+  name: 'Agustin Perticaro',
+  profilePic: images.myProfile,
+  age: 21,
+  createdRecipes: [],
+  visitedRecipes: [],
+  savedRecipes: [],
+  searchHistory: ['Pollo al horno', 'Pasta casera', 'Flan casero', 'Torta de chocolate'],
+}
+
 export default {
   trendingRecipes,
   categories,
+  user,
 }

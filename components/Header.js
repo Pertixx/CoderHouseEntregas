@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { Feather } from '@expo/vector-icons'
 import React from 'react'
+import { dummyData } from '../constants'
 
 const Header = () => {
   return (
@@ -12,13 +13,13 @@ const Header = () => {
           <Feather name="sun" size={24} color={COLORS.gray} />
           <Text style={{color: COLORS.black2, ...FONTS.h4}}>Buenas Noches</Text>
         </View>
-        <Text style={{color: COLORS.black2, ...FONTS.h2}}>Agustin Perticaro</Text>
+        <Text style={{color: COLORS.black2, ...FONTS.h2}}>{dummyData.user.name}</Text>
       </View>
       <TouchableOpacity
         onPress={() => console.log("Profile")}
       >
         <Image
-          source={images.myProfile}
+          source={dummyData.user.profilePic}
           style={styles.profileImage}
         />
       </TouchableOpacity>
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     height: SIZES.height * 0.08,
-    paddingVertical: SIZES.padding,
+    marginTop: SIZES.padding,
   },
   profileImage: {
     width: 40,
