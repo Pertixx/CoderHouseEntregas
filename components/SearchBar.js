@@ -1,6 +1,6 @@
-import { COLORS, SIZES, dummyData } from '../constants'
+import { COLORS, SHADOW, SIZES, dummyData } from '../constants'
+import { Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { Feather } from '@expo/vector-icons'
 
@@ -11,8 +11,9 @@ const SearchBar = ({ onPressSearch, onPressFilter, text, onChangeText }) => {
       <View style={styles.searchContainer}>
         <TouchableOpacity
           onPress={() => {
-            onPressSearch()
+            onPressSearch(text)
             onChangeText(null)
+            Keyboard.dismiss()
           }}
           style={styles.searchButton}
         >
@@ -21,6 +22,7 @@ const SearchBar = ({ onPressSearch, onPressFilter, text, onChangeText }) => {
         <TextInput
           style={styles.input}
           onChangeText={text => onChangeText(text)}
+          va
           value={text}
         />
       </View>
@@ -40,7 +42,6 @@ const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.padding,
     flexDirection: 'row',
-    //backgroundColor: 'red',
     height: SIZES.height * 0.07,
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -53,6 +54,8 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '90%',
     borderColor: COLORS.gray,
+    backgroundColor: COLORS.white,
+    ...SHADOW.shadow1
   },
   searchButton: {
     width: 40,

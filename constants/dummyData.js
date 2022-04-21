@@ -520,7 +520,7 @@ const user = {
   createdRecipes: [],
   visitedRecipes: [],
   savedRecipes: [],
-  searchHistory: ['Pollo al horno', 'Pasta casera', 'Flan casero', 'Torta de chocolate'],
+  searchHistory: ['Pollo al horno', 'Pasta casera'],
 }
 
 export default {

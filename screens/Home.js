@@ -1,12 +1,11 @@
 import { COLORS, FONTS, SIZES, dummyData } from '../constants/'
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 
 import CategoriesCarousel from '../components/CategoriesCarousel'
 import Header from '../components/Header'
-import React from 'react'
 import RecipeCard from '../components/RecipeCard'
 import TrendingRecipesCarousel from '../components/TrendingRecipesCarousel'
-import { useState } from 'react'
 
 const Home = ({ navigation }) => {
 
@@ -16,7 +15,7 @@ const Home = ({ navigation }) => {
   const renderItem = (item) => {
     return (
       <View style={{paddingHorizontal: SIZES.padding}}>
-        <RecipeCard categoryItem={item} navigation={navigation}/>
+        <RecipeCard categoryItem={item} navigation={navigation} />
       </View>
     )
   }
@@ -31,6 +30,7 @@ const Home = ({ navigation }) => {
 
     if (selectedCategories.length > 0) {
       let new_data = []
+      setData(new_data)
       selectedCategories.forEach(category => {
         dummyData.trendingRecipes.map((item) => {
           if (item.category === category) {
