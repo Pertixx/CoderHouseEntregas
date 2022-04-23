@@ -4,26 +4,26 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import React from 'react'
 
-const RecipeCard = ({categoryItem, navigation}) => {
+const RecipeCard = ({recipeItem, navigation}) => {
   return (
     <View style={styles.card}>
       <Image
-        source={categoryItem.image}
+        source={recipeItem.image}
         resizeMode="cover"
         style={styles.image}
       />
       <View style={styles.details}>
-        <Text style={styles.itemName}>{categoryItem.name}</Text>
+        <Text style={styles.itemName}>{recipeItem.name}</Text>
         <View style={styles.authorContainer}>
           <Image
-            source={categoryItem.author.profilePic}
+            source={recipeItem.author.profilePic}
             style={styles.profilePic}
           />
-          <Text style={styles.itemInfo}>{categoryItem.author.name}</Text>
+          <Text style={styles.itemInfo}>{recipeItem.author.name}</Text>
         </View>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Recipe', { recipeItem: categoryItem })}
+        onPress={() => navigation.navigate('Recipe', { recipeItem: recipeItem })}
         style={styles.button}
       >
         <Feather name="arrow-right" size={SIZES.icon} color={COLORS.white} />

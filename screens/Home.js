@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
   const renderItem = (item) => {
     return (
       <View style={{paddingHorizontal: SIZES.padding}}>
-        <RecipeCard categoryItem={item} navigation={navigation} />
+        <RecipeCard recipeItem={item} navigation={navigation} />
       </View>
     )
   }

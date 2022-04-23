@@ -23,6 +23,7 @@ const TrendingRecipeCard = ({recipeItem, navigation}) => {
         </View>
         <BookmarkButton
           onPress={() => console.log('Bookmark')}
+          colorMode='black'
         />
       </View>
       <RecipeCardInfo recipeItem={recipeItem} />

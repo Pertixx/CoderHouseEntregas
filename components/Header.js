@@ -9,20 +9,22 @@ const Header = () => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.titleContainer}>
-        <View style={styles.iconContainer}>
-          <Feather name="sun" size={24} color={COLORS.gray} />
-          <Text style={{color: COLORS.black2, ...FONTS.h4}}>Buenas Noches</Text>
+        <View style={{flex: 1}}>
+          <View style={styles.iconContainer}>
+            <Feather name="sun" size={24} color={COLORS.gray} />
+            <Text style={styles.welcomeText}>Buenas Noches</Text>
+          </View>
+          <Text style={styles.name}>{dummyData.user.name}</Text>
         </View>
-        <Text style={{color: COLORS.black2, ...FONTS.h2}}>{dummyData.user.name}</Text>
+        <TouchableOpacity
+          onPress={() => console.log("Profile")}
+        >
+          <Image
+            source={dummyData.user.profilePic}
+            style={styles.profileImage}
+          />
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        onPress={() => console.log("Profile")}
-      >
-        <Image
-          source={dummyData.user.profilePic}
-          style={styles.profileImage}
-        />
-      </TouchableOpacity>
     </View>
   )
 }
@@ -32,8 +34,9 @@ export default Header
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "row",
-    alignItems: "center",
+    //alignItems: "center",
     height: SIZES.height * 0.08,
+    width: '100%',
     marginTop: SIZES.padding,
   },
   profileImage: {
@@ -44,10 +47,20 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '40%',
-    justifyContent: 'space-between',
   },
   titleContainer: {
-    flex: 1,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  name: {
+    color: COLORS.black2,
+    ...FONTS.h2,
+  },
+  welcomeText: {
+    color: COLORS.black2,
+    ...FONTS.h4,
+    marginLeft: SIZES.padding,
   }
 })

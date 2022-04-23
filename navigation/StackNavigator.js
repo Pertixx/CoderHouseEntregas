@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
 
-import Home from '../screens/Home'
 import Login from '../screens/Login'
 import React from 'react'
 import Recipe from '../screens/Recipe'

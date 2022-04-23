@@ -1,4 +1,4 @@
-import { COLORS, SIZES } from '../constants'
+import { COLORS, SHADOW, SIZES } from '../constants'
 import { Platform, StyleSheet, Text, View } from 'react-native'
 
 import Bookmark from '../screens/Bookmark'
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     left: SIZES.padding,
     right: SIZES.padding,
     borderRadius: SIZES.padding,
+    ...SHADOW.shadow1
   },
   iconContainer: {
     flex: 1,

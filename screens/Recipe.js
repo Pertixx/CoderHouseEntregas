@@ -1,7 +1,9 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { COLORS, FONTS, SHADOW, SIZES } from '../constants'
+import { FlatList, Image, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
+import BookmarkButton from '../components/BookmarkButton'
+import { Feather } from '@expo/vector-icons'
 import IngredientCard from '../components/IngredientCard'
-import { Ionicons } from '@expo/vector-icons'
 import React from 'react'
 
 const HEADER_HEIGHT = 350
@@ -10,9 +12,29 @@ const Recipe = ({navigation, route}) => {
 
   const { recipeItem } = route.params
 
+  const renderHeader = () => {
+    return (
+      <View style={styles.backButtonContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
+          <Feather name="arrow-left" size={SIZES.icon} color={COLORS.black} />
+        </TouchableOpacity>
+        <BookmarkButton
+          onPress={() => console.log('Bookmark')}
+          colorMode='white'
+        />
+      </View>
+    )
+  }
+
   const renderRecipeHeader = () => {
     return (
       <View style={styles.headerContainer}>
+        <Text style={styles.title}>
+          {recipeItem.name}
+        </Text>
         <Image
           source={recipeItem.image}
           style={styles.image}
@@ -22,7 +44,7 @@ const Recipe = ({navigation, route}) => {
   }
 
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={recipeItem.ingredients}
         showsVerticalScrollIndicator={false}
@@ -35,7 +57,7 @@ const Recipe = ({navigation, route}) => {
           )
         }}
         ListHeaderComponent={
-          <View>
+          <View style={{paddingHorizontal: SIZES.padding}}>
             {renderRecipeHeader()}
           </View>
         }
@@ -43,15 +65,8 @@ const Recipe = ({navigation, route}) => {
           <View style={{marginBottom: 100}}/>
         }
       />
-      <View style={styles.backButtonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}
-        >
-          <Ionicons name="chevron-back" size={30} color="black" />
-        </TouchableOpacity>
-      </View>
-    </View>
+      {renderHeader()}
+    </SafeAreaView>
   )
 }
 
@@ -60,37 +75,42 @@ export default Recipe
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.white2,
+  },
+  title: {
+    ...FONTS.h1Bold,
+    width: '100%',
+    marginBottom: SIZES.padding,
   },
   backButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 40,
-    width: 40,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#000',
-    backgroundColor: 'gray'
+    height: 45,
+    width: 45,
+    borderRadius: 12,
+    ...SHADOW.shadow1,
+    backgroundColor: COLORS.white
   },
   image: {
-    height: HEADER_HEIGHT,
-    width: '200%',
+    height: HEADER_HEIGHT / 2,
+    width: '100%',
+    borderRadius: SIZES.padding - 5,
   },
   headerContainer: {
     alignItems: 'center',
     overflow: 'hidden',
     marginBottom: 20,
+    marginTop: SIZES.height * 0.11,
   },
   backButtonContainer: {
+    flex: 1,
     position: 'absolute',
-    top: 0,
+    top: Platform.OS === 'ios' ? SIZES.padding * 3.5 : SIZES.padding,
     left: 0,
     right: 0,
-    height: 90,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    paddingHorizontal: 15,
-    paddingBottom: 10,
+    alignItems: 'center',
+    paddingHorizontal: SIZES.padding,
   },
 })

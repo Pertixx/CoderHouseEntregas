@@ -4,7 +4,7 @@ import Animated, {
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
-  useSharedValue,
+  useSharedValue
 } from 'react-native-reanimated'
 import { COLORS, SIZES, dummyData } from '../constants'
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native'
@@ -45,7 +45,7 @@ const Search = ({ navigation }) => {
   const renderItem = (item) => {
     return (
       <View style={{paddingHorizontal: SIZES.padding}}>
-        <RecipeCard categoryItem={item} navigation={navigation}/>
+        <RecipeCard recipeItem={item} navigation={navigation}/>
       </View>
     )
   }
