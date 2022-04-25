@@ -5,6 +5,7 @@ const trendingRecipes = [
   {
       id: 1,
       name: "Spaghetti Con Camarones",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution ",
       image: images.spagetti,
       duration: "30 mins",
       views: 41,
@@ -79,6 +80,7 @@ const trendingRecipes = [
   {
       id: 2,
       name: "Pollo de Malasia",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution",
       image: images.satay,
       duration: "50 mins",
       views: 16,
@@ -91,7 +93,7 @@ const trendingRecipes = [
           {
               id: 1,
               icon: icons.chicken,
-              description: "Pata de Pollo",
+              description: "Pata de Pollooooooooooooooooooooooooooooooooooooooo",
               quantity: "1kg"
           },
           {
@@ -124,6 +126,7 @@ const trendingRecipes = [
   {
     id: 3,
     name: "Spaghetti Con Camarones",
+    description: null,
     image: images.spagetti,
     duration: "30 mins",
     views: 2,
@@ -198,6 +201,7 @@ const trendingRecipes = [
 {
   id: 4,
   name: "Spaghetti Con Camarones",
+  description: "it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution ",
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
@@ -272,6 +276,7 @@ const trendingRecipes = [
 {
   id: 5,
   name: "Spaghetti Con Camarones",
+  description: null,
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
@@ -346,6 +351,7 @@ const trendingRecipes = [
 {
   id: 6,
   name: "Spaghetti Con Camarones",
+  description: null,
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
@@ -420,6 +426,7 @@ const trendingRecipes = [
 {
   id: 7,
   name: "Spaghetti Con Camarones",
+  description: null,
   image: images.spagetti,
   duration: "30 mins",
   views: 2,

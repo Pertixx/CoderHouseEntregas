@@ -1,6 +1,5 @@
 import Animated, {
   Extrapolate,
-  StretchOutY,
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,

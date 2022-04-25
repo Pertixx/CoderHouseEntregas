@@ -1,3 +1,10 @@
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue
+} from 'react-native-reanimated'
 import { COLORS, FONTS, SHADOW, SIZES } from '../constants'
 import { FlatList, Image, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
@@ -5,12 +12,28 @@ import BookmarkButton from '../components/BookmarkButton'
 import { Feather } from '@expo/vector-icons'
 import IngredientCard from '../components/IngredientCard'
 import React from 'react'
-
-const HEADER_HEIGHT = 350
+import RecipeCreatorCard from '../components/RecipeCreatorCard'
 
 const Recipe = ({navigation, route}) => {
 
   const { recipeItem } = route.params
+  const scrollY = useSharedValue(0) //similar to new Animated.value(0)
+
+  const onScroll = useAnimatedScrollHandler((event) => {
+    scrollY.value = event.contentOffset.y
+  })
+  const inputRange = [SIZES.height / 10, SIZES.height / 3.5]
+  const creatorCardAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: scrollY.value}],
+    }
+  })
+
+  const imageAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(scrollY.value, inputRange, [1, 0], Extrapolate.CLAMP),
+    }
+  })
 
   const renderHeader = () => {
     return (
@@ -32,41 +55,69 @@ const Recipe = ({navigation, route}) => {
   const renderRecipeHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <Text style={styles.title}>
+        <Animated.Image
+          source={recipeItem.image}
+          style={[styles.image, imageAnimatedStyle]}
+          blurRadius={0}
+        />
+        <Animated.View
+          style={[
+            styles.creatorCard,
+            creatorCardAnimatedStyle,
+            recipeItem.description != null
+              ? {top: SIZES.height / 5, height: SIZES.height * 0.19}
+              : {top: SIZES.height / 4, height: SIZES.height * 0.14}
+          ]}
+        >
+          <RecipeCreatorCard author={recipeItem.author} recipeDescription={recipeItem.description}/>
+        </Animated.View>
+      </View>
+    )
+  }
+
+  const renderIngredientsTitle = () => {
+    return (
+      <View style={styles.ingredientsTitleContainer}>
+        <Text style={{
+          ...FONTS.h3,
+          color: COLORS.gray
+        }}>
+          Ingredientes de:
+        </Text>
+        <Text style={styles.ingredientsTitle}>
           {recipeItem.name}
         </Text>
-        <Image
-          source={recipeItem.image}
-          style={styles.image}
-        />
       </View>
     )
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
+    <View style={styles.container}>
+      <Animated.FlatList
         data={recipeItem.ingredients}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => `${item.id}`}
         renderItem={({item}) => {
           return (
-            <View style={{paddingHorizontal: 20}}>
+            <View style={{paddingHorizontal: SIZES.padding}}>
               <IngredientCard ingredient={item} />
             </View>
           )
         }}
         ListHeaderComponent={
-          <View style={{paddingHorizontal: SIZES.padding}}>
+          <View>
             {renderRecipeHeader()}
+            {renderIngredientsTitle()}
           </View>
         }
         ListFooterComponent={
           <View style={{marginBottom: 100}}/>
         }
+        onScroll={onScroll}
+        scrollEventThrottle={16}
       />
       {renderHeader()}
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -76,11 +127,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.white2,
-  },
-  title: {
-    ...FONTS.h1Bold,
-    width: '100%',
-    marginBottom: SIZES.padding,
   },
   backButton: {
     alignItems: 'center',
@@ -92,15 +138,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white
   },
   image: {
-    height: HEADER_HEIGHT / 2,
+    height: SIZES.height / 2.5,
     width: '100%',
-    borderRadius: SIZES.padding - 5,
   },
   headerContainer: {
     alignItems: 'center',
     overflow: 'hidden',
-    marginBottom: 20,
-    marginTop: SIZES.height * 0.11,
+    marginBottom: SIZES.padding + 5,
+    backgroundColor: COLORS.black
   },
   backButtonContainer: {
     flex: 1,
@@ -112,5 +157,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: SIZES.padding,
+  },
+  creatorCard: {
+    position: 'absolute',
+    //top: SIZES.height / 5,
+    width: '90%',
+    //height: SIZES.height * 0.19,
+    borderRadius: SIZES.padding - 5,
+    alignItems: 'center',
+  },
+  ingredientsTitleContainer: {
+    paddingHorizontal: SIZES.padding,
+    marginBottom: SIZES.padding,
+  },
+  ingredientsTitle: {
+    ...FONTS.h2,
   },
 })

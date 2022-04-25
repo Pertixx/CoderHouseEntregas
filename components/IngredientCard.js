@@ -1,38 +1,26 @@
+import { COLORS, FONTS, SIZES } from '../constants'
 import { Image, StyleSheet, Text, View } from 'react-native'
 
-import { FONTS } from '../constants'
 import React from 'react'
 
 const IngredientCard = ({ingredient}) => {
   return (
     <View style={styles.itemContainer}>
-        <View style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'lightgray',
-          height: 50,
-          width: 50,
-          borderRadius: 5,
-        }}>
+      <View style={styles.leftContainer}>
+        <View style={styles.imageContainer}>
           <Image
             source={ingredient.icon}
-            style={{width: 40, height: 40}}
+            style={{width: 30, height: 30}}
           />
         </View>
-        <View style={{
-          flex: 1,
-          paddingHorizontal: 20,
-          justifyContent: 'center'
-        }}>
-          <Text style={{...FONTS.bodyBold}}>{ingredient.description}</Text>
-        </View>
-        <View style={{
-          justifyContent: 'center',
-          alignItems: 'flex-end'
-        }}>
-          <Text style={{...FONTS.bodyBold,color: 'gray'}}>{ingredient.quantity}</Text>
-        </View>
+        <Text style={styles.ingredientName} numberOfLines={2}>
+          {ingredient.description}
+        </Text>
       </View>
+      <Text style={styles.ingredientQuantity}>
+        {ingredient.quantity}
+      </Text>
+    </View>
   )
 }
 
@@ -41,6 +29,35 @@ export default IngredientCard
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
-    marginVertical: 5,
+    backgroundColor: COLORS.gray3,
+    marginBottom: SIZES.padding,
+    height: SIZES.height * 0.09,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: SIZES.padding - 5,
+    borderRadius: SIZES.padding - 7,
+  },
+  leftContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '60%',
+    justifyContent: 'space-between',
+  },
+  imageContainer: {
+    backgroundColor: COLORS.white,
+    padding: SIZES.padding - 7,
+    borderRadius: SIZES.padding - 7,
+  },
+  ingredientName: {
+    flex: 1,
+    ...FONTS.h4,
+    paddingHorizontal: SIZES.padding - 5,
+  },
+  ingredientQuantity: {
+    flex: 1,
+    paddingHorizontal: SIZES.padding - 5,
+    color: COLORS.gray,
+    ...FONTS.bodyBold,
+    textAlign: 'right',
   },
 })
