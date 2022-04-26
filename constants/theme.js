@@ -13,6 +13,7 @@ export const COLORS = {
   white2: '#F9F9F9',
   black: "#020202",
   black2: '#06113C',
+  black3: '#212121',
   blue: "#4096FE",
   gray: "#777777",
   gray2: '#F8F8F8',

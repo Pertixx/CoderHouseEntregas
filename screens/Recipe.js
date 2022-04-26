@@ -9,6 +9,7 @@ import { COLORS, FONTS, SHADOW, SIZES } from '../constants'
 import { FlatList, Image, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import BookmarkButton from '../components/BookmarkButton'
+import CreateYourRecipeButton from '../components/CreateYourRecipeButton'
 import { Feather } from '@expo/vector-icons'
 import IngredientCard from '../components/IngredientCard'
 import React from 'react'
@@ -32,6 +33,12 @@ const Recipe = ({navigation, route}) => {
   const imageAnimatedStyle = useAnimatedStyle(() => {
     return {
       opacity: interpolate(scrollY.value, inputRange, [1, 0], Extrapolate.CLAMP),
+    }
+  })
+
+  const createButtonAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(scrollY.value, inputRange, [0, 1], Extrapolate.CLAMP)
     }
   })
 
@@ -91,6 +98,14 @@ const Recipe = ({navigation, route}) => {
     )
   }
 
+  const renderCreateRecipe = () => {
+    return (
+      <Animated.View style={[styles.createRecipeButton, createButtonAnimatedStyle]}>
+        <CreateYourRecipeButton />
+      </Animated.View>
+    )
+  }
+
   return (
     <View style={styles.container}>
       <Animated.FlatList
@@ -117,6 +132,7 @@ const Recipe = ({navigation, route}) => {
         scrollEventThrottle={16}
       />
       {renderHeader()}
+      {renderCreateRecipe()}
     </View>
   )
 }
@@ -173,4 +189,12 @@ const styles = StyleSheet.create({
   ingredientsTitle: {
     ...FONTS.h2,
   },
+  createRecipeButton: {
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? SIZES.padding * 3 : SIZES.padding,
+    left: 0,
+    right: 0,
+    paddingHorizontal: SIZES.height * 0.13,
+    height: SIZES.height * 0.07,
+  }
 })
