@@ -4,8 +4,13 @@ import React, { useState } from 'react'
 
 import BookmarkButton from './BookmarkButton'
 import RecipeCardInfo from './RecipeCardInfo'
+import { useSelector } from 'react-redux'
 
 const TrendingRecipeCard = ({recipeItem, navigation}) => {
+
+  const categories = useSelector(state => state.categories.categories)
+
+  const categoryName = categories[categories.findIndex(cat => cat.id === recipeItem.category)].name
 
   return (
     <TouchableOpacity
@@ -19,7 +24,7 @@ const TrendingRecipeCard = ({recipeItem, navigation}) => {
       />
       <View style={styles.headerContainer}>
         <View style={styles.category}>
-          <Text style={{color: '#fff', ...FONTS.h4}}>{recipeItem.category}</Text>
+          <Text style={{color: '#fff', ...FONTS.h4}}>{categoryName}</Text>
         </View>
         <BookmarkButton
           onPress={() => console.log('Bookmark')}
