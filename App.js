@@ -2,6 +2,8 @@ import { StyleSheet, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
 import Navigator from './navigation/Navigator';
+import { Provider } from 'react-redux';
+import store from './store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -20,7 +22,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Navigator />
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
     </View>
   );
 }

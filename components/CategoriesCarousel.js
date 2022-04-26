@@ -4,29 +4,13 @@ import React, { useState } from 'react'
 
 import CategoryButton from './CategoryButton'
 import SeeAllButton from './SeeAllButton'
+import { useSelector } from 'react-redux'
 
-const CategoriesCarousel = ({ data, onPress }) => {
+const CategoriesCarousel = ({ onPress }) => {
 
   const [ selected, setSelected ] = useState(false)
 
-  const renderItem = (item) => {
-    return (
-      <TouchableOpacity
-        onPress={() => {
-          onPress()
-          setSelected(!selected)
-        }}
-        style={[
-          styles.categoryButton,
-          selected
-            ? {backgroundColor: COLORS.orange}
-            : null
-        ]}
-      >
-        <Text style={styles.buttonText}>{item.name}</Text>
-      </TouchableOpacity>
-    )
-  }
+  const categories = useSelector(state => state.categories.categories)
 
   return (
     <View style={styles.container}>
@@ -39,11 +23,11 @@ const CategoriesCarousel = ({ data, onPress }) => {
         />
       </View>
       <FlatList
-        data={data}
+        data={categories}
         keyExtractor={item => `${item.id}`}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <CategoryButton onPress={onPress} item={item} />}
+        renderItem={({ item }) => <CategoryButton item={item} />}
       />
     </View>
   )

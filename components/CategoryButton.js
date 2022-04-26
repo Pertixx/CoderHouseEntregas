@@ -1,15 +1,22 @@
 import { COLORS, FONTS, SIZES } from '../constants'
 import React, { useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
-const CategoryButton = ({ onPress, item }) => {
+import { filterRecipes } from '../store/actions/recipe.action'
+import { selectCategory } from '../store/actions/category.action'
 
+const CategoryButton = ({ item }) => {
+
+  const dispatch = useDispatch()
+  const selectedCategories = useSelector(state => state.categories.selectedCategories)
   const [ selected, setSelected ] = useState(false)
 
   return (
     <TouchableOpacity
       onPress={() => {
-        onPress(item.name)
+        dispatch(selectCategory(item.id))
+        dispatch(filterRecipes(selectedCategories))
         setSelected(!selected)
       }}
       style={[

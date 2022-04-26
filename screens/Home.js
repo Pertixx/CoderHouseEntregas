@@ -1,6 +1,7 @@
 import { COLORS, FONTS, SIZES, dummyData } from '../constants/'
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import CategoriesCarousel from '../components/CategoriesCarousel'
 import Header from '../components/Header'
@@ -9,8 +10,9 @@ import TrendingRecipesCarousel from '../components/TrendingRecipesCarousel'
 
 const Home = ({ navigation }) => {
 
-  const [ data, setData ] = useState(dummyData.trendingRecipes)
-  const [ selectedCategories, setSelectedCategories ] = useState([])
+  const dispatch = useDispatch()
+  const data = useSelector(state => state.recipes.filteredRecipes)
+  const selectedCategories = useSelector(state => state.categories.selectedCategories)
 
   const renderItem = (item) => {
     return (

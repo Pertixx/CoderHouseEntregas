@@ -9,7 +9,7 @@ const trendingRecipes = [
       image: images.spagetti,
       duration: "30 mins",
       views: 41,
-      category: "Almuerzo",
+      category: 2,
       author: {
           profilePic: images.UserProfile5,
           name: "Maria",
@@ -84,7 +84,7 @@ const trendingRecipes = [
       image: images.satay,
       duration: "50 mins",
       views: 16,
-      category: "Cena",
+      category: 4,
       author: {
           profilePic: images.UserProfile8,
           name: "Laura",
@@ -130,7 +130,7 @@ const trendingRecipes = [
     image: images.spagetti,
     duration: "30 mins",
     views: 2,
-    category: "Almuerzo",
+    category: 2,
     author: {
         profilePic: images.UserProfile5,
         name: "Sol",
@@ -205,7 +205,7 @@ const trendingRecipes = [
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
-  category: "Almuerzo",
+  category: 2,
   author: {
       profilePic: images.UserProfile5,
       name: "Sol",
@@ -280,7 +280,7 @@ const trendingRecipes = [
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
-  category: "Almuerzo",
+  category: 2,
   author: {
       profilePic: images.UserProfile5,
       name: "Sol",
@@ -355,7 +355,7 @@ const trendingRecipes = [
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
-  category: "Almuerzo",
+  category: 2,
   author: {
       profilePic: images.UserProfile5,
       name: "Sol",
@@ -430,7 +430,7 @@ const trendingRecipes = [
   image: images.spagetti,
   duration: "30 mins",
   views: 2,
-  category: "Almuerzo",
+  category: 2,
   author: {
       profilePic: images.UserProfile5,
       name: "Sol",
