@@ -4,27 +4,27 @@ import { dummyData } from "../../constants";
 const initialState = {
   recipes: dummyData.trendingRecipes,
   filteredRecipes: dummyData.trendingRecipes,
-}
+};
 
 const RecipeReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FILTER_RECIPES:
       if (action.payload.selectedCategories.length > 0) {
-        let new_filtered = []
-        action.payload.selectedCategories.forEach(category => {
+        let new_filtered = [];
+        action.payload.selectedCategories.forEach((category) => {
           initialState.filteredRecipes.map((recipe) => {
             if (recipe.category === category) {
-              new_filtered.push(recipe)
+              new_filtered.push(recipe);
             }
-          })
-        })
-        return {...state, filteredRecipes: new_filtered}
+          });
+        });
+        return { ...state, filteredRecipes: new_filtered };
       } else {
-        return {...state, filteredRecipes: initialState.filteredRecipes}
+        return { ...state, filteredRecipes: initialState.filteredRecipes };
       }
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default RecipeReducer
+export default RecipeReducer;

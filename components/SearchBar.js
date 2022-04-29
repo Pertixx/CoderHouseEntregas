@@ -22,7 +22,6 @@ const SearchBar = ({ onPressSearch, onPressFilter, text, onChangeText }) => {
         <TextInput
           style={styles.input}
           onChangeText={text => onChangeText(text)}
-          va
           value={text}
         />
       </View>

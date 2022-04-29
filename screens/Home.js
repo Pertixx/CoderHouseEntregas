@@ -10,9 +10,7 @@ import TrendingRecipesCarousel from '../components/TrendingRecipesCarousel'
 
 const Home = ({ navigation }) => {
 
-  const dispatch = useDispatch()
   const data = useSelector(state => state.recipes.filteredRecipes)
-  const selectedCategories = useSelector(state => state.categories.selectedCategories)
 
   const renderItem = (item) => {
     return (
@@ -20,30 +18,6 @@ const Home = ({ navigation }) => {
         <RecipeCard recipeItem={item} navigation={navigation} />
       </View>
     )
-  }
-
-  const filterFlatListContent = (category) => {
-    if (selectedCategories.includes(category)) {
-      let index = selectedCategories.indexOf(category)
-      selectedCategories.splice(index, 1)
-    } else {
-      selectedCategories.push(category)
-    }
-
-    if (selectedCategories.length > 0) {
-      let new_data = []
-      setData(new_data)
-      selectedCategories.forEach(category => {
-        dummyData.trendingRecipes.map((item) => {
-          if (item.category === category) {
-            new_data.push(item)
-          }
-        })
-      })
-      setData(new_data)
-    } else {
-      setData(dummyData.trendingRecipes)
-    }
   }
 
   const renderEmptyListMessage = () => {
@@ -66,9 +40,9 @@ const Home = ({ navigation }) => {
         renderItem={({ item }) => renderItem(item)}
         ListHeaderComponent={
           <View style={{paddingHorizontal: SIZES.padding}}>
-            <Header />
+            <Header navigation={navigation} />
             <TrendingRecipesCarousel navigation={navigation} />
-            <CategoriesCarousel data={dummyData.categories} onPress={filterFlatListContent} />
+            <CategoriesCarousel />
           </View>
         }
         ListFooterComponent={

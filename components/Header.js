@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons'
 import React from 'react'
 import { dummyData } from '../constants'
 
-const Header = () => {
+const Header = ({navigation}) => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.titleContainer}>
@@ -17,7 +17,8 @@ const Header = () => {
           <Text style={styles.name}>{dummyData.user.name}</Text>
         </View>
         <TouchableOpacity
-          onPress={() => console.log("Profile")}
+          onPress={() => navigation.navigate('Profile')}
+          style={{borderRadius: SIZES.padding}}
         >
           <Image
             source={dummyData.user.profilePic}
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   profileImage: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: SIZES.padding - 5,
   },
   iconContainer: {
     flexDirection: 'row',

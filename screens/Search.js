@@ -80,6 +80,7 @@ const Search = ({ navigation }) => {
         }
         onScroll={onScroll}
         scrollEventThrottle={16}
+        bounces={false}
       />
     </SafeAreaView>
   )

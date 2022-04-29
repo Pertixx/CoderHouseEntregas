@@ -6,7 +6,7 @@ import CategoryButton from './CategoryButton'
 import SeeAllButton from './SeeAllButton'
 import { useSelector } from 'react-redux'
 
-const CategoriesCarousel = ({ onPress }) => {
+const CategoriesCarousel = () => {
 
   const [ selected, setSelected ] = useState(false)
 

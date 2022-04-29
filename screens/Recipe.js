@@ -101,7 +101,7 @@ const Recipe = ({navigation, route}) => {
   const renderCreateRecipe = () => {
     return (
       <Animated.View style={[styles.createRecipeButton, createButtonAnimatedStyle]}>
-        <CreateYourRecipeButton />
+        <CreateYourRecipeButton navigation={navigation} />
       </Animated.View>
     )
   }
@@ -130,6 +130,7 @@ const Recipe = ({navigation, route}) => {
         }
         onScroll={onScroll}
         scrollEventThrottle={16}
+        bounces={false}
       />
       {renderHeader()}
       {renderCreateRecipe()}
@@ -142,7 +143,7 @@ export default Recipe
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white2,
+    backgroundColor: COLORS.white2
   },
   backButton: {
     alignItems: 'center',

@@ -4,12 +4,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import React from 'react'
 
-const CreateYourRecipeButton = () => {
+const CreateYourRecipeButton = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Crea tu receta</Text>
       <TouchableOpacity
-        onPress={() => console.log('Go to create recipe screen')}
+        onPress={() => navigation.navigate('CreateRecipe')}
         style={styles.button}
       >
         <Feather name="arrow-right" size={SIZES.icon} color={COLORS.white} />
