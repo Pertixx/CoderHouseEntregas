@@ -1,46 +1,40 @@
-import { COLORS, FONTS, SIZES } from '../constants'
-import React, { useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
+import { COLORS, FONTS, SIZES } from "../constants";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
-import { filterRecipes } from '../store/actions/recipe.action'
-import { selectCategory } from '../store/actions/category.action'
+import { filterRecipes } from "../store/actions/recipe.action";
+import { selectCategory } from "../store/actions/category.action";
 
 const CategoryButton = ({ item }) => {
-
-  const dispatch = useDispatch()
-  const selectedCategories = useSelector(state => state.categories.selectedCategories)
-  const [ selected, setSelected ] = useState(false)
+  const dispatch = useDispatch();
+  const selectedCategories = useSelector(
+    (state) => state.categories.selectedCategories
+  );
+  const [selected, setSelected] = useState(false);
 
   return (
     <TouchableOpacity
       onPress={() => {
-        dispatch(selectCategory(item.id))
-        dispatch(filterRecipes(selectedCategories))
-        setSelected(!selected)
+        dispatch(selectCategory(item.id));
+        dispatch(filterRecipes(selectedCategories));
+        setSelected(!selected);
       }}
       style={[
         styles.categoryButton,
-        selected
-          ? {backgroundColor: COLORS.orange, borderWidth: 0}
-          : null
-        ]}
+        selected ? { backgroundColor: COLORS.orange, borderWidth: 0 } : null,
+      ]}
+    >
+      <Text
+        style={[styles.buttonText, selected ? { color: COLORS.white } : null]}
       >
-        <Text
-          style={[
-            styles.buttonText,
-            selected
-              ? {color: COLORS.white}
-              : null
-          ]}
-        >
-          {item.name}
-        </Text>
-      </TouchableOpacity>
-  )
-}
+        {item.name}
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
-export default CategoryButton
+export default CategoryButton;
 
 const styles = StyleSheet.create({
   categoryButton: {
@@ -48,9 +42,9 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: SIZES.padding,
     backgroundColor: COLORS.lightGray,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: SIZES.padding + 5,
     borderWidth: 1,
     borderColor: COLORS.gray3,
   },
@@ -58,4 +52,4 @@ const styles = StyleSheet.create({
     ...FONTS.bodyBold,
     color: COLORS.black,
   },
-})
+});

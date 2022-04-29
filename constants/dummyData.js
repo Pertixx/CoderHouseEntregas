@@ -594,7 +594,7 @@ const ingredients = [
   },
   {
     id: 13,
-    name: "Apple",
+    name: "Manzana",
     icon: icons.apple,
   },
 ];

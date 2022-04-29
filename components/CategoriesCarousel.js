@@ -1,39 +1,44 @@
-import { COLORS, FONTS, SIZES } from '../constants'
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import { COLORS, FONTS, SIZES } from "../constants";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import CategoryButton from './CategoryButton'
-import SeeAllButton from './SeeAllButton'
-import { useSelector } from 'react-redux'
+import CategoryButton from "./CategoryButton";
+import React from "react";
+import SeeAllButton from "./SeeAllButton";
+import { useSelector } from "react-redux";
 
-const CategoriesCarousel = () => {
-
-  const [ selected, setSelected ] = useState(false)
-
-  const categories = useSelector(state => state.categories.categories)
+const CategoriesCarousel = ({ showSeeAll = false }) => {
+  const categories = useSelector((state) => state.categories.categories);
 
   return (
     <View style={styles.container}>
       <View style={styles.categoryContainer}>
-        <Text style={{...FONTS.h2}}>Categorias</Text>
-        <SeeAllButton
-          text='Ver todas'
-          onPress={() => console.log('Navegar a otra screen?')}
-          textStyle={{color: COLORS.orange, ...FONTS.bodyBold}}
-        />
+        <Text style={{ ...FONTS.h2 }}>Categorias</Text>
+        {showSeeAll ? (
+          <SeeAllButton
+            text="Ver todas"
+            onPress={() => console.log("Navegar a otra screen?")}
+            textStyle={{ color: COLORS.orange, ...FONTS.bodyBold }}
+          />
+        ) : null}
       </View>
       <FlatList
         data={categories}
-        keyExtractor={item => `${item.id}`}
+        keyExtractor={(item) => `${item.id}`}
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => <CategoryButton item={item} />}
       />
     </View>
-  )
-}
+  );
+};
 
-export default CategoriesCarousel
+export default CategoriesCarousel;
 
 const styles = StyleSheet.create({
   container: {
@@ -50,8 +55,8 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: SIZES.padding,
     backgroundColor: COLORS.lightGray,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORS.gray3,
@@ -59,4 +64,4 @@ const styles = StyleSheet.create({
   buttonText: {
     ...FONTS.bodyBold,
   },
-})
+});

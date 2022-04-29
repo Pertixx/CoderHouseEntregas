@@ -2,14 +2,16 @@ import { COLORS, FONTS, SIZES } from "../constants";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const CustomInput = ({ placeholder, value, onChange, condition = null }) => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
         value={value}
-        onChangeText={(value) => onChange(value)}
+        onChangeText={(value) => dispatch(onChange(value))}
         placeholder={placeholder}
       />
       {condition != null ? (
