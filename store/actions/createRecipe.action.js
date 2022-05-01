@@ -35,7 +35,7 @@ export const setDuration = (duration) => ({
 export const confirmRecipe = (payload) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${API_URL}recipe.json`, {
+      const response = await fetch(`${API_URL}/recipes.json`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

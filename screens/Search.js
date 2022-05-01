@@ -12,11 +12,12 @@ import React, { useRef, useState } from "react";
 import RecipeCard from "../components/RecipeCard";
 import SearchBar from "../components/SearchBar";
 import SearchHistory from "../components/SearchHistory";
+import { useSelector } from "react-redux";
 
 const first_n = 5;
 
 const Search = ({ navigation }) => {
-  const [data, setData] = useState([]);
+  const data = useSelector((state) => state.recipes.recipes);
   const [searchHistory, setSearchHistory] = useState(
     dummyData.user.searchHistory.slice(0, first_n)
   );
@@ -73,8 +74,8 @@ const Search = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       {console.log(text)}
       <Animated.FlatList
-        data={dummyData.trendingRecipes}
-        keyExtractor={(item) => `${item.id}`}
+        data={data}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => renderItem(item)}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={

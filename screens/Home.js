@@ -15,9 +15,15 @@ import CategoriesCarousel from "../components/CategoriesCarousel";
 import Header from "../components/Header";
 import RecipeCard from "../components/RecipeCard";
 import TrendingRecipesCarousel from "../components/TrendingRecipesCarousel";
+import { getRecipes } from "../store/actions/recipe.action";
 
 const Home = ({ navigation }) => {
   const data = useSelector((state) => state.recipes.filteredRecipes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, []);
 
   const renderItem = (item) => {
     return (
@@ -45,7 +51,7 @@ const Home = ({ navigation }) => {
       <FlatList
         data={data}
         showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => `${item.id}`}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => renderItem(item)}
         ListHeaderComponent={
           <View style={{ paddingHorizontal: SIZES.padding }}>

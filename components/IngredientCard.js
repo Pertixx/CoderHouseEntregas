@@ -1,47 +1,42 @@
-import { COLORS, FONTS, SIZES } from '../constants'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { COLORS, FONTS, SIZES } from "../constants";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-import React from 'react'
+import React from "react";
 
-const IngredientCard = ({ingredient}) => {
+const IngredientCard = ({ ingredient }) => {
   return (
     <View style={styles.itemContainer}>
       <View style={styles.leftContainer}>
         <View style={styles.imageContainer}>
-          <Image
-            source={ingredient.icon}
-            style={{width: 30, height: 30}}
-          />
+          <Image source={ingredient.icon} style={{ width: 30, height: 30 }} />
         </View>
         <Text style={styles.ingredientName} numberOfLines={2}>
-          {ingredient.description}
+          {ingredient.name}
         </Text>
       </View>
-      <Text style={styles.ingredientQuantity}>
-        {ingredient.quantity}
-      </Text>
+      <Text style={styles.ingredientQuantity}>{ingredient.quantity}</Text>
     </View>
-  )
-}
+  );
+};
 
-export default IngredientCard
+export default IngredientCard;
 
 const styles = StyleSheet.create({
   itemContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     backgroundColor: COLORS.gray3,
     marginBottom: SIZES.padding,
     height: SIZES.height * 0.09,
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    alignItems: "center",
+    justifyContent: "space-around",
     paddingHorizontal: SIZES.padding - 5,
     borderRadius: SIZES.padding - 7,
   },
   leftContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '60%',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    width: "60%",
+    justifyContent: "space-between",
   },
   imageContainer: {
     backgroundColor: COLORS.white,
@@ -58,6 +53,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.padding - 5,
     color: COLORS.gray,
     ...FONTS.bodyBold,
-    textAlign: 'right',
+    textAlign: "right",
   },
-})
+});

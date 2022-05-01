@@ -8,6 +8,8 @@ import {
   SET_RECIPE_NAME,
 } from "../actions/createRecipe.action";
 
+import { images } from "../../constants";
+
 const initialState = {
   recipe: {
     name: null,
@@ -16,8 +18,10 @@ const initialState = {
     category: null,
     ingredients: null,
     views: 0,
+    image: images.spagetti,
     author: {
       name: "Agustin Perticaro",
+      profilePic: null,
     },
   },
   name: null,

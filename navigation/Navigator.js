@@ -1,17 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from "react-native";
 
-import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import StackNavigator from './StackNavigator'
+import AuthStackNavigator from "./AuthStackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import StackNavigator from "./StackNavigator";
 
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <AuthStackNavigator />
+      {/* <StackNavigator /> */}
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default Navigator
+export default Navigator;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

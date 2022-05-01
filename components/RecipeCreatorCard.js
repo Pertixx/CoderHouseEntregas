@@ -1,45 +1,48 @@
-import { COLORS, FONTS, SIZES } from '../constants'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { COLORS, FONTS, SIZES, images } from "../constants";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { BlurView } from 'expo-blur'
-import { Feather } from '@expo/vector-icons'
-import React from 'react'
+import { BlurView } from "expo-blur";
+import { Feather } from "@expo/vector-icons";
+import React from "react";
 
 const RecipeCreatorCard = ({ author, recipeDescription = null }) => {
-
   const renderDescription = () => {
     if (recipeDescription != null) {
       return (
         <Text style={styles.description} numberOfLines={4}>
           {recipeDescription}
         </Text>
-      )
+      );
     }
-  }
+  };
 
   return (
     <BlurView
       style={[StyleSheet.absoluteFillObject, styles.container]}
-      tint='dark'
-      intensity={Platform.OS != 'ios' ? 80 : 30}
+      tint="dark"
+      intensity={Platform.OS != "ios" ? 80 : 30}
     >
       <View style={styles.header}>
-        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Image
-            source={author.profilePic}
-            style={{width: 30, height: 30, borderRadius: 5}}
+            source={images.myProfile}
+            style={{ width: 30, height: 30, borderRadius: 5 }}
           />
-          <View style={{marginLeft: SIZES.padding}}>
-            <Text style={{...FONTS.h4, color: COLORS.gray3}}>
+          <View style={{ marginLeft: SIZES.padding }}>
+            <Text style={{ ...FONTS.h4, color: COLORS.gray3 }}>
               Receta creada por:
             </Text>
-            <Text style={styles.name}>
-              {author.name}
-            </Text>
+            <Text style={styles.name}>{author.name}</Text>
           </View>
         </View>
         <TouchableOpacity
-          onPress={() => console.log('Go to author profile')}
+          onPress={() => console.log("Go to author profile")}
           style={styles.button}
         >
           <Feather name="arrow-right" size={SIZES.icon} color={COLORS.white} />
@@ -47,30 +50,30 @@ const RecipeCreatorCard = ({ author, recipeDescription = null }) => {
       </View>
       {renderDescription()}
     </BlurView>
-  )
-}
+  );
+};
 
-export default RecipeCreatorCard
+export default RecipeCreatorCard;
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: SIZES.padding - 5,
     padding: SIZES.padding - 5,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   title: {
     ...FONTS.h1Bold,
     color: COLORS.white,
-    width: '100%',
+    width: "100%",
   },
   name: {
     color: COLORS.orange,
-    ...FONTS.h3
+    ...FONTS.h3,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     //backgroundColor: 'red',
   },
   description: {
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: SIZES.padding - 5,
     backgroundColor: COLORS.black,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-})
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

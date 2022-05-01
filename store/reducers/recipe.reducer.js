@@ -1,9 +1,8 @@
-import { FILTER_RECIPES } from "../actions/recipe.action";
-import { dummyData } from "../../constants";
+import { FILTER_RECIPES, GET_RECIPES } from "../actions/recipe.action";
 
 const initialState = {
-  recipes: dummyData.trendingRecipes,
-  filteredRecipes: dummyData.trendingRecipes,
+  recipes: [],
+  filteredRecipes: [],
 };
 
 const RecipeReducer = (state = initialState, action) => {
@@ -12,16 +11,22 @@ const RecipeReducer = (state = initialState, action) => {
       if (action.payload.selectedCategories.length > 0) {
         let new_filtered = [];
         action.payload.selectedCategories.forEach((category) => {
-          initialState.filteredRecipes.map((recipe) => {
-            if (recipe.category === category) {
+          state.recipes.map((recipe) => {
+            if (recipe.item.category === category) {
               new_filtered.push(recipe);
             }
           });
         });
         return { ...state, filteredRecipes: new_filtered };
       } else {
-        return { ...state, filteredRecipes: initialState.filteredRecipes };
+        return { ...state, filteredRecipes: state.recipes };
       }
+    case GET_RECIPES:
+      return {
+        ...state,
+        recipes: action.payload,
+        filteredRecipes: action.payload,
+      };
     default:
       return state;
   }

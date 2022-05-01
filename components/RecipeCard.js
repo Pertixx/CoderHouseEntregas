@@ -1,38 +1,33 @@
-import { COLORS, FONTS, SHADOW, SIZES } from '../constants'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { COLORS, FONTS, SHADOW, SIZES, images } from "../constants";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { Feather } from '@expo/vector-icons'
-import React from 'react'
+import { Feather } from "@expo/vector-icons";
+import React from "react";
 
-const RecipeCard = ({recipeItem, navigation}) => {
+const RecipeCard = ({ recipeItem, navigation }) => {
   return (
     <View style={styles.card}>
-      <Image
-        source={recipeItem.image}
-        resizeMode="cover"
-        style={styles.image}
-      />
+      <Image source={images.spagetti} resizeMode="cover" style={styles.image} />
       <View style={styles.details}>
-        <Text style={styles.itemName}>{recipeItem.name}</Text>
+        <Text style={styles.itemName}>{recipeItem.item.name}</Text>
         <View style={styles.authorContainer}>
-          <Image
-            source={recipeItem.author.profilePic}
-            style={styles.profilePic}
-          />
-          <Text style={styles.itemInfo}>{recipeItem.author.name}</Text>
+          <Image source={images.myProfile} style={styles.profilePic} />
+          <Text style={styles.itemInfo}>{recipeItem.item.author.name}</Text>
         </View>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate('Recipe', { recipeItem: recipeItem })}
+        onPress={() =>
+          navigation.navigate("Recipe", { recipeItem: recipeItem })
+        }
         style={styles.button}
       >
         <Feather name="arrow-right" size={SIZES.icon} color={COLORS.white} />
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default RecipeCard
+export default RecipeCard;
 
 const styles = StyleSheet.create({
   card: {
@@ -42,7 +37,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderRadius: 10,
     backgroundColor: COLORS.white,
-    ...SHADOW.shadow1
+    ...SHADOW.shadow1,
   },
   image: {
     width: 100,
@@ -59,12 +54,12 @@ const styles = StyleSheet.create({
   },
   itemInfo: {
     color: COLORS.gray,
-    ...FONTS.body
+    ...FONTS.body,
   },
   authorContainer: {
-    width: '50%',
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: "50%",
+    flexDirection: "row",
+    alignItems: "center",
   },
   profilePic: {
     width: 28,
@@ -73,13 +68,13 @@ const styles = StyleSheet.create({
     marginRight: SIZES.padding - 8,
   },
   button: {
-    position: 'absolute',
+    position: "absolute",
     right: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     width: 30,
     height: 30,
     borderRadius: 10,
     backgroundColor: COLORS.black,
   },
-})
+});
